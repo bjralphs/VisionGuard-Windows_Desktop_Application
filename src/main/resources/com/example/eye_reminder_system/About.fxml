@@ -28,7 +28,7 @@
          </font>
       </Text>
 
-      <Hyperlink fx:id="githubLink" ellipsisString="https://github.com/bjralphs/VisionGuard" layoutX="511.0" layoutY="362.0" onAction="#openLink" text="github" underline="true" visited="true">
+      <Hyperlink fx:id="githubLink" ellipsisString="https://github.com/bjralphs/VisionGuard_Windows.Desktop.Application" layoutX="511.0" layoutY="362.0" onAction="#openLink" text="github" underline="true" visited="true">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
