@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="397.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.eye_reminder_system.AboutController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e7eef5" height="414.0" stroke="BLACK" strokeType="INSIDE" width="619.0" />
+      <Text layoutX="58.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About" wrappingWidth="72.71875">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aed8ff" height="414.0" layoutX="449.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+      <ImageView cache="true" fitHeight="117.0" fitWidth="131.0" layoutX="475.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon-80.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="482.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VisionGuard">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+
+      <Hyperlink fx:id="githubLink" ellipsisString="https://github.com/bjralphs/VisionGuard" layoutX="511.0" layoutY="362.0" onAction="#openLink" text="github" underline="true" visited="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Hyperlink>
+      <Text fill="WHITE" layoutX="520.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v1.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Text layoutX="58.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VisionGuard is a desktop application designed to remind users to take eye breaks while working on their computers. " wrappingWidth="285.0078125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="58.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The application sends reminders to users every 20 minutes by default, encouraging them to look 20 feet away for 20 seconds – an eye health recommendation often referred to as the 20-20-20 rule." wrappingWidth="285.0078125">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="58.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;To maintain the health of the eyes, it is necessary to look afar.&quot; ">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Text>
+      <Text layoutX="290.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="— Chinese Proverb">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" layoutX="159.0" layoutY="106.0" startX="-100.0" />
+   </children>
+</AnchorPane>

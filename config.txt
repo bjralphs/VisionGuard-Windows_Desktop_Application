@@ -1,0 +1,3 @@
+#Temporary config file to store values with user preferences
+#Deliver Silent Notifications:
+true
