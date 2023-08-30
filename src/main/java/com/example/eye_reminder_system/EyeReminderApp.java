@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+
 public class EyeReminderApp extends Application {
 
     private static final String ICON_PATH = "icon-16.png";
@@ -53,6 +54,8 @@ public class EyeReminderApp extends Application {
         remind.startReminder();
     }
 
+
+
     private void createTrayIcon(final Stage stage) {
         Platform.runLater(() -> {
             stage.setIconified(true);
@@ -62,7 +65,10 @@ public class EyeReminderApp extends Application {
             Image image = Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource(ICON_PATH));
             trayIcon = new TrayIcon(image);
 
-            trayIcon.setToolTip("VisionGuard");
+            StatusMenuController.statusProperty().addListener((observable, oldValue, newValue) -> {
+                String formattedTime = StatusMenuController.formatTime(newValue.longValue());
+                trayIcon.setToolTip("VisionGuard - " + formattedTime);
+            });
 
             // Create the AWT popup menu and its menu items
             PopupMenu popup = new PopupMenu();
@@ -121,6 +127,14 @@ public class EyeReminderApp extends Application {
                 });
             });
 
+            // Add action listeners to the AWT EXIT
+            exitItem.addActionListener(e -> {
+                Platform.runLater(() -> {
+                    System.exit(0);
+                });
+            });
+
+            //INITIALIZE TRAY ICON
             popup.add(aboutItem);
             popup.add(separator);  // Add separator
             popup.add(enableItem);
@@ -150,9 +164,4 @@ public class EyeReminderApp extends Application {
             });
         });
     }
-
-
-
-
-
 }

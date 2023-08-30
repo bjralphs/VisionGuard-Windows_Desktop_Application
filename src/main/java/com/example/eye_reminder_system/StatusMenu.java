@@ -20,9 +20,17 @@ public class StatusMenu {
     private static final double WINDOW_OFFSET_Y = 500;
 
     private Stage statusStage;
+    private static StatusMenu instance; // Singleton instance
 
     public StatusMenu() {
         init();
+    }
+
+    public static StatusMenu getInstance() {
+        if (instance == null) {
+            instance = new StatusMenu();
+        }
+        return instance;
     }
 
     private void init() {
@@ -39,6 +47,10 @@ public class StatusMenu {
             // Set custom icon
             Image customIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_PATH)));
             statusStage.getIcons().add(customIcon);
+
+            statusStage.setAlwaysOnTop(true);  // Make sure the window is always on top
+            statusStage.toFront();             // Bring the window to the front
+
 
             // Position window to bottom right
             positionWindowBottomRight();
@@ -57,7 +69,13 @@ public class StatusMenu {
 
     public void show() {
         if (statusStage != null) {
-            statusStage.show();
+            if (statusStage.isShowing()) {
+                // Bring the existing window to front if it's already open
+                statusStage.toFront();
+            } else {
+                // Otherwise, show the window
+                statusStage.show();
+            }
         }
     }
 }

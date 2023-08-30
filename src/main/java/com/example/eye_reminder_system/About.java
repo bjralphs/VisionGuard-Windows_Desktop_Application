@@ -20,9 +20,17 @@ public class About {
     private static final double WINDOW_OFFSET_Y = 500;
 
     private Stage statusStage;
+    private static About instance; // Singleton instance
 
     public About() {
         init();
+    }
+
+    public static About getInstance() {
+        if (instance == null) {
+            instance = new About();
+        }
+        return instance;
     }
 
 
@@ -41,6 +49,8 @@ public class About {
             // Set custom icon
             Image customIcon = new Image(Objects.requireNonNull(getClass().getResourceAsStream(ICON_PATH)));
             statusStage.getIcons().add(customIcon);
+            statusStage.setAlwaysOnTop(true);  // Make sure the window is always on top
+            statusStage.toFront();             // Bring the window to the front
 
             // Position window to bottom right
             positionWindowBottomRight();
@@ -59,7 +69,13 @@ public class About {
 
     public void show() {
         if (statusStage != null) {
-            statusStage.show();
+            if (statusStage.isShowing()) {
+                // Bring the existing window to front if it's already open
+                statusStage.toFront();
+            } else {
+                // Otherwise, show the window
+                statusStage.show();
+            }
         }
     }
 }

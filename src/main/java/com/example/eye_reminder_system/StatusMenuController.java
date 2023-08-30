@@ -61,6 +61,12 @@ public class StatusMenuController {
     public static SimpleLongProperty remainingTime = new SimpleLongProperty();
 
     public static void setRemainingTime(){ remainingTime.set(Reminder.getRemainder()); }
+
+    public static SimpleLongProperty statusProperty() {
+        return remainingTime;
+    }
+
+
     // Initialize your controller (similar to a constructor for JavaFX)
     @FXML
     public void initialize() {
@@ -117,11 +123,23 @@ public class StatusMenuController {
         }
     }
 
-    private String formatTime(long millis) {
+    public static String formatTime(long millis) {
         long totalSeconds = millis / 1000;
-        long minutes = totalSeconds / 60;
-        long seconds = totalSeconds % 60;
-        return minutes + " minutes " + seconds + " seconds";
+        long hours = totalSeconds / 3600;
+        long remainingSeconds = totalSeconds % 3600;
+        long minutes = remainingSeconds / 60;
+        long seconds = remainingSeconds % 60;
+
+        StringBuilder formattedTime = new StringBuilder();
+        if (hours > 0) {
+            formattedTime.append(hours).append(" hours ");
+        }
+        if (hours > 0 || minutes > 0) {
+            formattedTime.append(minutes).append(" minutes ");
+        }
+        formattedTime.append(seconds).append(" seconds");
+
+        return formattedTime.toString().trim();
     }
 
 

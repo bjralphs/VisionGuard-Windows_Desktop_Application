@@ -116,11 +116,13 @@ public class Reminder {
 
         if (!StatusMenuController.isChecked()) {
             playNotificationSound();
-
         }
 
+        dialogStage.setAlwaysOnTop(true);  // Make sure the window is always on top
+        dialogStage.toFront();             // Bring the window to the front
+
+
         alert.show();
-        //playNotificationSound();
 
         // Set up the pause to close the alert after 30 seconds
         PauseTransition delay = new PauseTransition(Duration.seconds(30));
